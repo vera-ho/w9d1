@@ -3,7 +3,7 @@ const Asteroid = require("./asteroid.js");
 
 const DIMX = 400;
 const DIMY = 400;
-const NUM_ASTEROIDS = 10000;
+const NUM_ASTEROIDS = 10;
 
 function Game() {
     this.asteroids = [];
@@ -32,14 +32,15 @@ Game.prototype.draw = function(context) {
     context.clearRect;
     context.fillStyle = "grey";
     context.fillRect(0, 0, 400, 400);
-
     for(let i = 0; i < this.asteroids.length; i++) {
         this.asteroids[i].draw(context);
     }
 }
 
 Game.prototype.moveObjects = function() {
-
+    for(let i = 0; i < this.asteroids.length; i++) {
+        this.asteroids[i].move();
+    }
 }
 
 module.exports = Game;
