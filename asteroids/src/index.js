@@ -1,3 +1,4 @@
+const Asteroid = require("./asteroid.js");
 const MovingObject = require("./moving_object.js");
 
 window.MovingObject = MovingObject;
@@ -14,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     mo.draw(ctx);
+    asteroid.draw(ctx);
 })
 
 const mo = new MovingObject({
@@ -23,3 +25,9 @@ const mo = new MovingObject({
     color: "#00FF00"
 });
 
+const asteroid = new Asteroid({
+    pos: [50, 100], 
+    vel: [10, 10], 
+    radius: 15,
+    color: "blue"
+})
