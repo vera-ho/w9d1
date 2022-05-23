@@ -8,9 +8,12 @@ const NUM_ASTEROIDS = 5;
 
 function Game() {
     this.asteroids = [];
+    this.DIM_X = DIMX;
+    this.DIM_Y = DIMY;
     for(let i = 0; i < NUM_ASTEROIDS; i++) {
         this.asteroids.push(this.addAsteroids());
     }
+
 }
 
 Game.prototype.addAsteroids = function() {
@@ -32,7 +35,7 @@ Game.prototype.randomPosition = function() {
 Game.prototype.draw = function(context) {
     context.clearRect;
     context.fillStyle = "grey";
-    context.fillRect(0, 0, 400, 400);
+    context.fillRect(0, 0, DIMX, DIMY);
     for(let i = 0; i < this.asteroids.length; i++) {
         this.asteroids[i].draw(context);
     }
@@ -51,15 +54,15 @@ Game.prototype.wrap = function(pos) {
         if asteroid moves to left of screen, x = 0, set x = 400 and keep y the same
     */
     if(pos[0] < 0) {
-        pos[0] = Game.DIMX;
+        pos[0] = this.DIM_X;
     }
-    if(pos[0] > Game.DIMX){
+    if(pos[0] > this.DIM_X){
         pos[0] = 0;
     }
     if(pos[1] < 0) {
-        pos[1] = Game.DIMY;
+        pos[1] = this.DIM_Y;
     }
-    if(pos[1] > Game.DIMY) {
+    if(pos[1] > this.DIM_Y) {
         pos[1] = 0;
     }
 
