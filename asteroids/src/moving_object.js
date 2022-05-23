@@ -9,9 +9,9 @@ MovingObject.prototype.draw = function(context) {
   context.beginPath();
   context.arc(this.pos[0], this.pos[1], this.radius, 0, 2 * Math.PI);
 
-  context.strokeStyle = this.color;
+  context.strokeStyle = "black";
   context.fillStyle = this.color;
-  context.lineWidth = 2;
+  context.lineWidth = 1;
 
   context.fill();
   context.stroke();

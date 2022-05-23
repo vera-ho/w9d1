@@ -1,5 +1,6 @@
 const Asteroid = require("./asteroid.js");
 const MovingObject = require("./moving_object.js");
+const Game = require("./game.js");
 
 window.MovingObject = MovingObject;
 
@@ -13,28 +14,14 @@ document.addEventListener("DOMContentLoaded", function() {
     ctx.fillStyle = "grey";
     ctx.fillRect(0, 0, 400, 400);
 
+    a.draw(ctx);
 
-    mo.draw(ctx);
-    a1.draw(ctx);
-    a2.draw(ctx);
+    const game = new Game();
+    console.log(game);
+    game.draw(ctx);
 })
 
-const mo = new MovingObject({
-    pos: [30, 30],
-    vel: [10, 10],
-    radius: 5,
-    color: "#00FF00"
-});
-
-const a1 = new Asteroid({
-    pos: [50, 100], 
-    vel: [10, 10], 
-    radius: 9,
-    color: "purple"
+const a = new Asteroid({
+    pos: [100, 100], 
+    vel: [10, 10]
 })
-
-const a2 = new Asteroid({
-    pos: [350, 70],
-    vel: [15, 15]
-})
-
