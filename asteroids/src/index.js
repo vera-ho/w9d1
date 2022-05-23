@@ -1,1 +1,3 @@
-console.log('this is index.js')
+const MovingObject = require("./moving_object.js");
+
+window.MovingObject = MovingObject;
