@@ -1,5 +1,6 @@
 
 const Asteroid = require("./asteroid.js");
+const Util = require("./util.js");
 
 const DIMX = 400;
 const DIMY = 400;
@@ -16,7 +17,7 @@ function Game() {
 Game.prototype.addAsteroids = function() {
     const a1 = new Asteroid({
         pos: this.randomPosition(),
-        vel: [10, 10]
+        vel: Util.randomVec(10)
     });
     return a1;
 }

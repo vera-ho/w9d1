@@ -1,3 +1,5 @@
+const Util = require("./util.js");
+
 function MovingObject(obj) {
   this.pos = obj.pos;
   this.vel = obj.vel;
@@ -18,6 +20,8 @@ MovingObject.prototype.draw = function(context) {
 }
 
 MovingObject.prototype.move = function() {
+  // this.pos[0] += this.vel[0];
+  // this.pos[1] += this.vel[1];
   this.pos[0] += this.vel[0];
   this.pos[1] += this.vel[1];
 }
