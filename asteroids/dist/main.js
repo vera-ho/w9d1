@@ -25,7 +25,7 @@ eval("const MovingObject = __webpack_require__(/*! ./moving_object.js */ \"./src
   \******************************/
 /***/ ((module) => {
 
-eval("function MovingObject(obj) {\n  this.pos = obj['pos'];\n  this.vel = obj['vel'];\n  this.radius = obj['radius'];\n  this.color = obj['color'];\n}\n\nMovingObject.prototype.draw = function(context) {\n  context.beginPath();\n  context.arc(200, 200, this.radius, 0, 2* Math.PI);\n  context.strokeStyle = this.color;\n  context.lineWidth = 2;\n  context.fillStyle = \"red\";\n  context.fill();\n  context.stroke();\n}\n\nmodule.exports = MovingObject;\n\n//# sourceURL=webpack:///./src/moving_object.js?");
+eval("function MovingObject(obj) {\n  this.pos = obj['pos'];\n  this.vel = obj['vel'];\n  this.radius = obj['radius'];\n  this.color = obj['color'];\n}\n\nMovingObject.prototype.draw = function(context) {\n  context.beginPath();\n  context.arc(200, 200, this.radius, 0, 2* Math.PI);\n  context.strokeStyle = this.color;\n  context.lineWidth = 2;\n  context.fillStyle = \"red\";\n  context.fill();\n  context.stroke();\n}\n\nMovingObject.prototype.move = function() {\n  this.pos[0] += this.vel[0];\n  this.pos[1] += this.vel[1];\n}\n\n\n\nmodule.exports = MovingObject;\n\n//# sourceURL=webpack:///./src/moving_object.js?");
 
 /***/ })
 
