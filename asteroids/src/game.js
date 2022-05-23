@@ -3,7 +3,7 @@ const Asteroid = require("./asteroid.js");
 
 const DIMX = 400;
 const DIMY = 400;
-const NUM_ASTEROIDS = 10;
+const NUM_ASTEROIDS = 500;
 
 function Game() {
     this.asteroids = [];

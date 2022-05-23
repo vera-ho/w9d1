@@ -1,4 +1,4 @@
-const Game = require('/game.js');
+const Game = require('./game.js');
 
 function GameView (game,ctx) {
   this.game = game;
@@ -10,7 +10,7 @@ GameView.prototype.start = function () {
   setInterval(function () {
     gv.game.moveObjects() 
     gv.game.draw(gv.ctx);
-    }, 1000);
+    }, 100);
 }
 
 module.exports = GameView;
