@@ -28,8 +28,6 @@ MovingObject.prototype.move = function() {
 
 MovingObject.prototype.isCollidedWith = function(otherObj) {
   // collision if otherobj.pos - this.pos < (otherObj.radius + this.radius)
-  console.log(this.game.asteroids);
-  // debugger
   const distance = Math.abs(this.radius + otherObj.radius);
   const x_diff = Math.abs(this.pos[0] - otherObj.pos[0]);
   const y_diff = Math.abs(this.pos[1] - otherObj.pos[1]);
