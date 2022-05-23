@@ -8,7 +8,8 @@ function GameView (game, ctx) {
 GameView.prototype.start = function () {
   let gv = this;
   setInterval(function () {
-    gv.game.moveObjects() 
+    // gv.game.moveObjects() 
+    gv.game.step();
     gv.game.draw(gv.ctx);
     }, 100);
 }
