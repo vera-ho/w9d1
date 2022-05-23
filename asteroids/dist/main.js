@@ -15,7 +15,7 @@
   \*************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("const MovingObject = __webpack_require__(/*! ./moving_object */ \"./src/moving_object.js\");\nconst Util = __webpack_require__(/*! ./util.js */ \"./src/util.js\");\n\nUtil.inherits(Asteroid, MovingObject);\n\nfunction Asteroid(COLOR, RADIUS) {\n    MovingObject.call(this, COLOR, RADIUS)\n    // if(!COLOR) COLOR = \"green\";\n    // if(!RADIUS) RADIUS = 10;\n\n    // this.color = COLOR;\n    // this.radius = RADIUS;\n    // this.pos = pos;\n    // this.vel = vel;\n}\n\nmodule.exports = Asteroid;\n\n//# sourceURL=webpack:///./src/asteroid.js?");
+eval("const MovingObject = __webpack_require__(/*! ./moving_object */ \"./src/moving_object.js\");\nconst Util = __webpack_require__(/*! ./util.js */ \"./src/util.js\");\n\nUtil.inherits(Asteroid, MovingObject);\n\nfunction Asteroid(obj) {\n    if(!obj.color) obj.color = \"blue\";\n    if(!obj.radius) obj.radius = 10;\n    MovingObject.call(this, obj);\n}\n\nmodule.exports = Asteroid;\n\n//# sourceURL=webpack:///./src/asteroid.js?");
 
 /***/ }),
 
@@ -25,7 +25,7 @@ eval("const MovingObject = __webpack_require__(/*! ./moving_object */ \"./src/mo
   \**********************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("const Asteroid = __webpack_require__(/*! ./asteroid.js */ \"./src/asteroid.js\");\nconst MovingObject = __webpack_require__(/*! ./moving_object.js */ \"./src/moving_object.js\");\n\nwindow.MovingObject = MovingObject;\n\ndocument.addEventListener(\"DOMContentLoaded\", function() {\n    const canvasEl = document.getElementById(\"canvas\");\n    const ctx = canvasEl.getContext(\"2d\");\n\n    canvasEl.width = 400;\n    canvasEl.height = 400;\n\n    ctx.fillStyle = \"grey\";\n    ctx.fillRect(0, 0, 400, 400);\n\n\n    mo.draw(ctx);\n    asteroid.draw(ctx);\n})\n\nconst mo = new MovingObject({\n    pos: [30, 30],\n    vel: [10, 10],\n    radius: 5,\n    color: \"#00FF00\"\n});\n\nconst asteroid = new Asteroid({\n    pos: [50, 100], \n    vel: [10, 10], \n    radius: 15,\n    color: \"blue\"\n})\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("const Asteroid = __webpack_require__(/*! ./asteroid.js */ \"./src/asteroid.js\");\nconst MovingObject = __webpack_require__(/*! ./moving_object.js */ \"./src/moving_object.js\");\n\nwindow.MovingObject = MovingObject;\n\ndocument.addEventListener(\"DOMContentLoaded\", function() {\n    const canvasEl = document.getElementById(\"canvas\");\n    const ctx = canvasEl.getContext(\"2d\");\n\n    canvasEl.width = 400;\n    canvasEl.height = 400;\n\n    ctx.fillStyle = \"grey\";\n    ctx.fillRect(0, 0, 400, 400);\n\n\n    mo.draw(ctx);\n    a1.draw(ctx);\n    a2.draw(ctx);\n})\n\nconst mo = new MovingObject({\n    pos: [30, 30],\n    vel: [10, 10],\n    radius: 5,\n    color: \"#00FF00\"\n});\n\nconst a1 = new Asteroid({\n    pos: [50, 100], \n    vel: [10, 10], \n    radius: 9,\n    color: \"purple\"\n})\n\nconst a2 = new Asteroid({\n    pos: [350, 70],\n    vel: [15, 15]\n})\n\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
@@ -35,7 +35,7 @@ eval("const Asteroid = __webpack_require__(/*! ./asteroid.js */ \"./src/asteroid
   \******************************/
 /***/ ((module) => {
 
-eval("function MovingObject(obj) {\n  this.pos = obj['pos'];\n  this.vel = obj['vel'];\n  this.radius = obj['radius'];\n  this.color = obj['color'];\n}\n\nMovingObject.prototype.draw = function(context) {\n  context.beginPath();\n  context.arc(this.pos[0], this.pos[1], this.radius, 0, 2* Math.PI);\n\n  context.strokeStyle = this.color;\n  context.fillStyle = this.color;\n  context.lineWidth = 2;\n\n  context.fill();\n  context.stroke();\n}\n\nMovingObject.prototype.move = function() {\n  this.pos[0] += this.vel[0];\n  this.pos[1] += this.vel[1];\n}\n\nmodule.exports = MovingObject;\n\n//# sourceURL=webpack:///./src/moving_object.js?");
+eval("function MovingObject(obj) {\n  this.pos = obj.pos;\n  this.vel = obj.vel;\n  this.radius = obj.radius;\n  this.color = obj.color;\n}\n\nMovingObject.prototype.draw = function(context) {\n  context.beginPath();\n  context.arc(this.pos[0], this.pos[1], this.radius, 0, 2 * Math.PI);\n\n  context.strokeStyle = this.color;\n  context.fillStyle = this.color;\n  context.lineWidth = 2;\n\n  context.fill();\n  context.stroke();\n}\n\nMovingObject.prototype.move = function() {\n  this.pos[0] += this.vel[0];\n  this.pos[1] += this.vel[1];\n}\n\nmodule.exports = MovingObject;\n\n//# sourceURL=webpack:///./src/moving_object.js?");
 
 /***/ }),
 

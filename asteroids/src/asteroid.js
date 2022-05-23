@@ -3,15 +3,10 @@ const Util = require("./util.js");
 
 Util.inherits(Asteroid, MovingObject);
 
-function Asteroid(COLOR, RADIUS) {
-    MovingObject.call(this, COLOR, RADIUS)
-    // if(!COLOR) COLOR = "green";
-    // if(!RADIUS) RADIUS = 10;
-
-    // this.color = COLOR;
-    // this.radius = RADIUS;
-    // this.pos = pos;
-    // this.vel = vel;
+function Asteroid(obj) {
+    if(!obj.color) obj.color = "blue";
+    if(!obj.radius) obj.radius = 10;
+    MovingObject.call(this, obj);
 }
 
 module.exports = Asteroid;
