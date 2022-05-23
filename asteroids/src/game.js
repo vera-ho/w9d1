@@ -1,15 +1,12 @@
-
 const Asteroid = require("./asteroid.js");
 const Util = require("./util.js");
 
 const DIMX = 400;
 const DIMY = 400;
-const NUM_ASTEROIDS = 5;
+const NUM_ASTEROIDS = 50;
 
 function Game() {
     this.asteroids = [];
-    this.DIM_X = DIMX;
-    this.DIM_Y = DIMY;
     for(let i = 0; i < NUM_ASTEROIDS; i++) {
         this.asteroids.push(this.addAsteroids());
     }
@@ -19,7 +16,7 @@ function Game() {
 Game.prototype.addAsteroids = function() {
     const a1 = new Asteroid({
         pos: this.randomPosition(),
-        vel: Util.randomVec(10),
+        vel: Util.randomVec(Math.floor(Math.random() * 10)),
         game: this
     });
     return a1;
@@ -54,15 +51,15 @@ Game.prototype.wrap = function(pos) {
         if asteroid moves to left of screen, x = 0, set x = 400 and keep y the same
     */
     if(pos[0] < 0) {
-        pos[0] = this.DIM_X;
+        pos[0] = DIMX;
     }
-    if(pos[0] > this.DIM_X){
+    if(pos[0] > DIMX){
         pos[0] = 0;
     }
     if(pos[1] < 0) {
-        pos[1] = this.DIM_Y;
+        pos[1] = DIMY;
     }
-    if(pos[1] > this.DIM_Y) {
+    if(pos[1] > DIMY) {
         pos[1] = 0;
     }
 

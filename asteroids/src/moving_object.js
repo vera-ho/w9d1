@@ -12,7 +12,7 @@ MovingObject.prototype.draw = function(ctx) {
   ctx.beginPath();
   ctx.arc(this.pos[0], this.pos[1], this.radius, 0, 2 * Math.PI);
 
-  ctx.strokeStyle = "black";
+  ctx.strokeStyle = "3D3C3A";
   ctx.fillStyle = this.color;
   ctx.lineWidth = 1;
 
@@ -23,8 +23,12 @@ MovingObject.prototype.draw = function(ctx) {
 MovingObject.prototype.move = function() {
   this.pos[0] += this.vel[0];
   this.pos[1] += this.vel[1];
-  // debugger
   this.pos = this.game.wrap(this.pos);
+}
+
+MovingObject.prototype.isCollidedWith = function(otherObj) {
+  // collision if otherobj.pos - this.pos < (otherObj.radius + this.radius)
+  const radius_diff = Math.abs(this.radius - otherObj.radius);
 }
 
 module.exports = MovingObject;
