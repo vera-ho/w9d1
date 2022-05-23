@@ -28,7 +28,16 @@ MovingObject.prototype.move = function() {
 
 MovingObject.prototype.isCollidedWith = function(otherObj) {
   // collision if otherobj.pos - this.pos < (otherObj.radius + this.radius)
-  const radius_diff = Math.abs(this.radius - otherObj.radius);
+  const distance = Math.abs(this.radius + otherObj.radius);
+  const x_diff = Math.abs(this.pos[0] - otherObj.pos[0]);
+  const y_diff = Math.abs(this.pos[1] - otherObj.pos[1]);
+  const pos_diff = Math.sqrt((x_diff ** 2) + (y_diff ** 2));
+
+  if(pos_diff > distance) {
+    return false;
+  } else {
+    return true;
+  }
 }
 
 module.exports = MovingObject;
